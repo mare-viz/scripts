@@ -8,7 +8,7 @@ def choose():
     print('For quit (-1)')
     c = input('File(0) or just text(1): ')
     if c == '0':
-        file_path = input('Vvod pyt do file: ')
+        file_path = input('File path: ')
         text = file_to_text(file_path=file_path)
     elif c == '1':
         text = input('Input text: ')
@@ -16,7 +16,7 @@ def choose():
         print('Have good day!')
         exit()
     else:
-        print('Napytal chel\nTry again')
+        print('Error!\nTry again')
         choose()
     
     lang = input('Lang("ru" or "en"): ')
@@ -43,13 +43,13 @@ def file_to_text(file_path):
                 text = (docx2txt.process(file_path)).replace('\n', '')
             # for other
             else:
-                print('Nety tackih!')
+                print('Error!\nFile is not supported')
         except ValueError as er:
-            print('Prover file and try again!')
+            print('Check file and try again!')
             exit()
 
     else:
-        print('Тип файла не фурычит!\nTry again')
+        print('Is not a file!\nTry again')
         choose()
     return text
 
