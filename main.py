@@ -1,8 +1,9 @@
-from gtts import gTTS
 from art import tprint
+from gtts import gTTS
 from pathlib import Path
 import pdfplumber
 import docx2txt
+import time
 
 def choose():
     print('For quit (-1)')
@@ -74,17 +75,19 @@ def create_mp3(result):
         fileName = input('Input filename: ')
         if fileName == '-1':
             exit()
-        result.save(f'{fileName}.mp3')         
-        print('Have a nice day!!!')
+        result.save(f'{fileName}.mp3')
+        print('File save was successful\nHave a nice day!!!')
     else:
         print('Hmmm...')
         print('Try again...')
 
 def main():
+    start_time = time.time()
     tprint('TEXT>>TO>>MP3')
     result = choose()
     create_mp3(result)
-
+    print(f'Code completed in {round(time.time() - start_time), 2} seconds.')
+    
 if __name__ == '__main__':
     main()
 
