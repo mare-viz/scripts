@@ -82,12 +82,11 @@ def create_mp3(result):
         print('Try again...')
 
 def main():
-    start_time = time.time()
     tprint('TEXT>>TO>>MP3')
     result = choose()
     create_mp3(result)
-    print(f'Code completed in {round(time.time() - start_time, 2)} seconds.')
     
 if __name__ == '__main__':
+    start_time = time.time()
     main()
-
+    print(f'Code completed in {round(time.time() - start_time, 2)} seconds.')
